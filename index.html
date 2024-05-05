@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Netflix HomePage</title>
+    <link rel="stylesheet" href="./assets/scss/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body class="bodyBg mx-5">
+
+
+
+    <!--************IMPORTANTE PER IL PROF *******************
+        Il sito è disponibile anche direttamente al link https://sabrinacinque.github.io/ProgettoSettimana6Epicode/. 
+        Sono state collegate tutte e tre le pagine:index,editProfile e settings. Per queste pagine si accede dalla navbar, 
+        in alto a destra,dove c'è l'icona dell'avatar. Se si clicca sopra si apre un menu a tendina dove si può cambiare 
+        account(e cambia anche l'immagine dell'account in utilizzo tramite js) e si può andare su edit profile e su 
+        Account(che sarebbe la pagina extra di settings). Nella pagina edit profile è possibile cambiare anche l'icona dell'avatar 
+        se si va sul "pennino" sopra la foto e si può ritornare alla home con un tasto"home" che ho aggiunto(oltre al fatto che il logo 
+        netflix in alto a sinistra è autoreferenziale e quindi fa tornare sulla home).-->
+    <header>
+            <div class="row">
+                <div class="col col-9">
+                    <nav class="navbar justify-content-start  navbar-expand-md">
+                        <div>
+                            <a class="navbar-brand" href="index.html">
+                                <img src="./assets/netflix_logo.png" alt="logo Netflix" id="logoNetflix" >
+                            </a> 
+                        </div> 
+                        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <div>
+                                <ul class="navbar-nav nav-fill">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" aria-current="page" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active text-light" href="#">Tv Shows</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" href="#">Movies</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" href="#">Recently Added</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" href="#">My List</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </nav>
+                    
+                </div>
+                
+                <div class="col col-3 mt-2 d-flex justify-content-end">
+                    <div class="row">
+                        <div class="col text-white d-flex flex-row pt-2">
+                            <div id="searchInputWrapper" class="ps-2 d-none">
+                                <input type="text" class="form-control bg-dark text-white p-0" placeholder="Film, genere...">
+                            </div>
+                            <i id="searchIcon" class="bi bi-search d-none d-md-flex pt-2 " type="button"></i>
+                            <p class="mb-0 ps-2 d-none d-md-flex pt-1">kids</p>
+                            <i class="bi bi-bell-fill ps-2 d-none d-md-flex pt-2"></i>
+                            <ul class="navbar-nav ps-2">   
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-white py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img id="avatarImage" src="./assets/avatar.png" alt="immagine avatar" width="25px">
+                                    </a>
+                                    <ul class="dropdown-menu bg-dark">
+                                        <li><a id="sabrinaLink" class="dropdown-item text-white" href="#" onclick="changeAvatar('./assets/avatar.png')" 
+                                               onmouseover="this.classList.remove('text-white'); this.classList.add('text-black');" 
+                                               onmouseout="this.classList.remove('text-black'); this.classList.add('text-white');">
+                                               <img src="./assets/avatar.png" alt="immagine avatar" width="25px"> Sabrina</a></li>
+                                        <li><a id="giovanniLink" class="dropdown-item text-white" href="#" onclick="changeAvatar('./assets/kids_icon.png')" 
+                                               onmouseover="this.classList.remove('text-white'); this.classList.add('text-black');" 
+                                               onmouseout="this.classList.remove('text-black'); this.classList.add('text-white');">
+                                               <img src="./assets/kids_icon.png" alt="immagine avatar" width="25px"> Giovanni</a></li>
+                                        <li><a class="dropdown-item text-white" href="editProfile.html" onmouseover="this.classList.remove('text-white'); this.classList.add('text-black');" 
+                                            onmouseout="this.classList.remove('text-black'); this.classList.add('text-white');"><i class="bi bi-pencil-fill"></i> Edit Profile</a></li>
+                                        <li><a class="dropdown-item text-white" href="settings.html" onmouseover="this.classList.remove('text-white'); this.classList.add('text-black');" 
+                                            onmouseout="this.classList.remove('text-black'); this.classList.add('text-white');"><i class="bi bi-person"></i> Account</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>                 
+                </div>                
+            </div>
+    </header>
+
+
+    <!--INIZIO MAIN-->
+    
+
+    <main class="text-light mt-4">
+
+
+        <div class="row align-items-center justify-content-between ">
+            <div class="col col-12 col-md-4">
+                <div class="row align-items-center ">
+                    <div class="col">
+                        <h3>TV Shows</h3>
+                    </div>
+                    <div class="col">
+                        <select class="form-select-sm p-0 bodyBg text-white" aria-label="Default select example">
+                            <option selected>Genres</option>
+                            <option value="1">Horror</option>
+                            <option value="2">Romatic</option>
+                            <option value="3">Trhiller</option>
+                          </select>    
+                    </div>
+                </div>              
+            </div>
+            <div class="d-none d-md-block col-1 me-3">
+                <div class="row justify-content-end">
+                    <div class="col-3 border border-secondary-subtle d-flex justify-content-center">
+                        <i class="bi bi-list text-white-50" type="button"></i> 
+                    </div>
+                    <div class="col-3 border border-secondary-subtle d-flex justify-content-center">
+                        <i class="bi bi-grid-fill text-white-50" type="button"></i> 
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+
+        <!--Primo carousel-->
+        <div class="row mt-5">
+            <h3>Trending Now</h3>
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex">
+                            <a href="#" class="d-flex d-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media0.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                                <span class="badge text-bg-danger position-absolute bottom-0 start-0 mb-2 ms-sm-2 rounded-0">NEW EPISODES</span>
+                            </a>
+                            <a href="#" class="d-none d-sm-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media1.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-md-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media2.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                                <span class="badge text-bg-danger position-absolute bottom-0 start-0 mb-2 ms-sm-2 rounded-0">NEW EPISODES</span>
+                            </a>
+                            <a href="#" class="d-none d-lg-block w-100 p-1">
+                                <img src="./assets/media/media3.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-xl-block w-100 p-1">
+                                <img src="./assets/media/media4.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                        </div>                        
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex">
+                            <a href="#" class="d-flex d-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media4.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-sm-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media5.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                                <span class="badge text-bg-danger position-absolute bottom-0 start-0 mb-2 ms-sm-2 rounded-0">NEW EPISODES</span>
+                            </a>
+                            <a href="#" class="d-none d-md-block w-100 p-1">
+                                <img src="./assets/media/media6.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-lg-block w-100 p-1">
+                                <img src="./assets/media/media7.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-xl-block w-100 p-1">
+                                <img src="./assets/media/media8.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="d-flex">
+                            <a href="#" class="d-flex d-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media8.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-sm-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media9.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-md-block w-100 p-1">
+                                <img src="./assets/media/media10.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-lg-block w-100 p-1">
+                                <img src="./assets/media/media11.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-xl-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media12.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                                <span class="badge text-bg-danger position-absolute bottom-0 start-0 mb-2 ms-sm-2 rounded-0">NEW EPISODES</span>
+                            </a>
+                        </div>
+                    </div>                   
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!--Secondo carousel-->
+        <div class="row mt-5">
+            <h3>Watch It Again</h3>
+            <div id="carouselExample1" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex">
+                            <a href="#" class="d-flex d-block w-100 p-1 justify-content-center ">
+                                <img src="./assets/media/media13.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-sm-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media14.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                                <span class="badge text-bg-danger position-absolute bottom-0 start-0 mb-2 ms-sm-2 rounded-0">NEW EPISODES</span>
+                            </a>
+                            <a href="#" class="d-none d-md-block w-100 p-1">
+                                <img src="./assets/media/media15.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-lg-block w-100 p-1">
+                                <img src="./assets/media/media16.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-xl-block w-100 p-1">
+                                <img src="./assets/media/media17.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                        </div>
+                        
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex">
+                            <a href="#" class="d-flex d-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media17.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                                <span class="badge text-bg-danger position-absolute bottom-0 start-0 mb-2 ms-sm-2 rounded-0">NEW EPISODES</span>
+                            </a>
+                            <a href="#" class="d-none d-sm-block w-100 p-1">
+                                <img src="./assets/media/media18.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-md-block w-100 p-1">
+                                <img src="./assets/media/media19.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-lg-block w-100 p-1">
+                                <img src="./assets/media/media15.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-xl-block w-100 p-1">
+                                <img src="./assets/media/media21.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="d-flex">
+                            <a href="#" class="d-flex d-block w-100 p-1 justify-content-center ">
+                                <img src="./assets/media/media21.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-sm-block w-100 p-1">
+                                <img src="./assets/media/media22.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-md-block w-100 p-1">
+                                <img src="./assets/media/media23.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-lg-block w-100 p-1">
+                                <img src="./assets/media/media24.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-xl-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media25.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                                <span class="badge text-bg-danger position-absolute bottom-0 start-0 mb-2 ms-sm-2 rounded-0">NEW EPISODES</span>
+                            </a>
+                        </div>
+                    </div>                   
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample1" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample1" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+
+        <!--Terzo carousel-->
+
+        <div class="row mt-5">
+            <h3>New Releases</h3>
+            <div id="carouselExample2" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex">
+                            <a href="#" class="d-flex d-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media26.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                                <span class="badge text-bg-danger position-absolute bottom-0 start-0 mb-2 ms-sm-2 rounded-0">NEW EPISODES</span>
+                            </a>
+                            <a href="#" class="d-none d-sm-block w-100 p-1">
+                                <img src="./assets/media/media27.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-md-block w-100 p-1">
+                                <img src="./assets/media/media28.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-lg-block w-100 p-1">
+                                <img src="./assets/media/media29.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-xl-block w-100 p-1">
+                                <img src="./assets/media/media30.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                        </div>
+                        
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex">
+                            <a href="#" class="d-flex d-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media30.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-sm-block w-100 p-1">
+                                <img src="./assets/media/media31.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-md-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media32.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                                <span class="badge text-bg-danger position-absolute bottom-0 start-0 mb-2 ms-sm-2 rounded-0">NEW EPISODES</span>
+                            </a>
+                            <a href="#" class="d-none d-lg-block w-100 p-1">
+                                <img src="./assets/media/media1.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-xl-block w-100 p-1">
+                                <img src="./assets/media/media2.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="d-flex">
+                            <a href="#" class="d-flex d-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media15.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-sm-block w-100 p-1">
+                                <img src="./assets/media/media18.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-md-block w-100 p-1">
+                                <img src="./assets/media/media20.jpg" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-lg-block w-100 p-1">
+                                <img src="./assets/media/media5.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                            </a>
+                            <a href="#" class="d-none d-xl-block w-100 p-1 position-relative justify-content-center ">
+                                <img src="./assets/media/media7.webp" class="img-fluid w-100 hoverImg" alt="immagine locandina">
+                                <span class="badge text-bg-danger position-absolute bottom-0 start-0 mb-2 ms-sm-2 rounded-0">NEW EPISODES</span>
+                            </a>
+                        </div>
+                    </div>                   
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+                <!--Inizio Footer-->
+
+    <footer class="mt-5 text-white-50">
+        <div class="row">
+            <div class="col d-flex flex-row col-6 offset-2 mt-5 ">
+                <a href="#" class="nav-link"><i class="bi bi-facebook pe-3 fs-4"></i></a><!--su bootstrap icon c'era solo il logo tondo di fb...forse quello quadrato era il vecchio logo ?-->
+                <a href="#" class="nav-link"><i class="bi bi-instagram pe-3 fs-4"></i></a>
+                <a href="#" class="nav-link"><i class="bi bi-twitter pe-3 fs-4"></i></a>
+                <a href="#" class="nav-link"><i class="bi bi-youtube fs-4"></i></a>  
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row flex-column flex-sm-row">
+                    <div class="col col-8 offset-2 col-sm-2 mt-4">
+                        <a href="#" class="nav-link"><p class="little">Audio and subtitles</p></a>
+                        <a href="#" class="nav-link"><p class="little">Media Center</p></a>
+                        <a href="#" class="nav-link"><p class="little">Privacy</p></a>
+                        <a href="#" class="nav-link"><p class="little">Contact Us</p></a>
+                    </div>
+                    <div class="col col-8 offset-2 col-sm-2 offset-sm-0 mt-4">
+                        <a href="#" class="nav-link"><p class="little">Audio Description</p></a>
+                        <a href="#" class="nav-link"><p class="little">Investor Relations</p></a>
+                        <a href="#" class="nav-link"><p class="little">Legal Notices</p></a>
+                    </div>
+                    <div class="col col-8 offset-2 col-sm-2 offset-sm-0 mt-4">
+                        <a href="#" class="nav-link"><p class="little">Help Center</p></a>
+                        <a href="#" class="nav-link"><p class="little">Jobs</p></a>
+                        <a href="#" class="nav-link"><p class="little">Cookie Preferencies</p></a>
+                    </div>
+                    <div class="col col-8 offset-2 col-sm-2 offset-sm-0 mt-4">
+                        <a href="#" class="nav-link"><p class="little">Gift Cards</p></a>
+                        <a href="#" class="nav-link"><p class="little">Terms of Use</p></a>
+                        <a href="#" class="nav-link"><p class="little">Corporate Information</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col offset-2 mt-2">
+                <button class="btn btn-outline-secondary border-2 rounded-0" type="button" >Service Code</button>
+                <p class="mt-3 little">&copy;1997-2019 Netflix,inc.</p>
+            </div>
+        </div>
+    </footer>
+        
+
+    <script src="./assets/js/script.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

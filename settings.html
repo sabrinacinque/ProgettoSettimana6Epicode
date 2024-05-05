@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Setting pages Netflix</title>
+    <link rel="stylesheet" href="./assets/scss/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">  </head>
+  <body>
+    <header class="bodyBg px-5"> <!--HEADER UGUALE ALLA HOME-->
+      <div class="row">
+          <div class="col col-9">
+              <nav class="navbar justify-content-start  navbar-expand-md">
+                  <div>
+                      <a class="navbar-brand" href="index.html">
+                          <img src="./assets/netflix_logo.png" alt="logo Netflix" id="logoNetflix">
+                      </a> 
+                  </div> 
+                  <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                      <div>
+                          <ul class="navbar-nav nav-fill">
+                              <li class="nav-item">
+                                  <a class="nav-link text-light" aria-current="page" href="index.html">Home</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link active text-light" href="#">Tv Shows</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link text-light" href="#">Movies</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link text-light" href="#">Recently Added</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link text-light" href="#">My List</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+
+              </nav>
+              
+          </div>
+          
+          <div class="col col-3 mt-2 d-flex justify-content-end">
+              <div class="row">
+                  <div class="col text-white d-flex flex-row pt-2">
+                      <div id="searchInputWrapper" class="ps-2 d-none">
+                          <input type="text" class="form-control bg-dark text-white p-0" placeholder="Film, genere...">
+                      </div>
+                      <i id="searchIcon" class="bi bi-search d-none d-md-flex pt-2 " type="button"></i>
+                      <p class="mb-0 ps-2 d-none d-md-flex pt-1">kids</p>
+                      <i class="bi bi-bell-fill ps-2 d-none d-md-flex pt-2"></i>
+                      <ul class="navbar-nav ps-2">   
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle text-white py-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <img id="avatarImage" src="./assets/avatar.png" alt="immagine avatar" width="25px">
+                              </a>
+                              <ul class="dropdown-menu bg-dark">
+                                  <li><a id="sabrinaLink" class="dropdown-item text-white" href="#" onclick="changeAvatar('./assets/avatar.png')" 
+                                         onmouseover="this.classList.remove('text-white'); this.classList.add('text-black');" 
+                                         onmouseout="this.classList.remove('text-black'); this.classList.add('text-white');">
+                                         <img src="./assets/avatar.png" alt="immagine avatar" width="25px"> Sabrina</a></li>
+                                  <li><a id="giovanniLink" class="dropdown-item text-white" href="#" onclick="changeAvatar('./assets/kids_icon.png')" 
+                                         onmouseover="this.classList.remove('text-white'); this.classList.add('text-black');" 
+                                         onmouseout="this.classList.remove('text-black'); this.classList.add('text-white');">
+                                         <img src="./assets/kids_icon.png" alt="immagine avatar" width="25px"> Giovanni</a></li>
+                                  <li><a class="dropdown-item text-white" href="editProfile.html" onmouseover="this.classList.remove('text-white'); this.classList.add('text-black');" 
+                                      onmouseout="this.classList.remove('text-black'); this.classList.add('text-white');"><i class="bi bi-pencil-fill"></i> Edit Profile</a></li>
+                                  <li><a class="dropdown-item text-white" href="settings.html" onmouseover="this.classList.remove('text-white'); this.classList.add('text-black');" 
+                                      onmouseout="this.classList.remove('text-black'); this.classList.add('text-white');"><i class="bi bi-person"></i> Account</a></li>
+                              </ul>
+                              
+                          </li>
+                      </ul>
+                  </div>
+              </div>                 
+          </div>                
+      </div>
+ </header>
+  
+ <main class="text-secondary">
+  <div class="row mt-5 mb-4">
+    <div class="col col-10 mx-auto col-md-8 border-bottom border-dark-subtle px-0">
+      <h2 class="text-dark">Account</h2>
+    </div>
+  </div>
+
+  <div class="row mt-3 ">
+    <div class="col col-10 mx-auto col-md-8">
+      <div class="row flex-column flex-md-row border-bottom border-dark-subtle ">
+        <div class="col col-10 col-md-4 ps-md-4 " style="padding-left: 0 !important;">
+          <h5>MEMBERSHIP & BILLING</h5>
+          <button type="button" class="btn bg-dark-subtle rounded-0 border-0 border-bottom border-secondary px-4">Cancel Membership</button>
+        </div> 
+        <div class="col col-10 col-md-8">
+          <div class="row flex-column flex-md-row border-bottom border-dark-subtle">
+            <div class="col">
+              <p class="text-dark fw-bold ">student@strive.school</p>
+              <p>Password: *************</p>
+              <p>Phone: 321 044 1279</p>
+            </div>
+            <div class="col d-flex flex-column align-items-start align-items-md-end  ">
+              <a href="#" class="text-decoration-none"><p>Change account email</p></a>
+              <a href="#" class="text-decoration-none"><p>Change password</p></a>
+              <a href="#" class="text-decoration-none"><p>Change phone number</p></a>
+            </div>
+          </div>
+          <div class="row flex-column flex-md-row border-bottom border-dark-subtle ">
+            <div class="col">
+              <p class="text-dark fw-bold "><i class="bi bi-paypal"></i> PayPal admin@strive.school</p>
+            </div>
+            <div class="col d-flex flex-column align-items-start align-items-md-end ">
+              <a href="#" class="text-decoration-none"><p>Update payment info</p></a>
+              <a href="#" class="text-decoration-none"><p>Billing details</p></a>
+            </div>
+          </div>  
+          <div class="row justify-content-between">
+            <div class="col d-flex flex-column align-items-start align-items-md-end  ">
+              <a href="#" class="text-decoration-none"><p>Rendeem gift card or promo code</p></a>
+              <a href="#" class="text-decoration-none"><p>where to buy gift cards</p></a>
+            </div>
+          </div>      
+      </div>
+    </div> 
+    <div class="row flex-column flex-md-row border-bottom border-dark-subtle mt-3">
+      <div class="col col-10 col-md-4 ps-md-4" style="padding-left: 0 !important;">
+        <h5>PLAN DETAILS</h5>
+      </div> 
+      <div class="col col-10 col-md-8">
+        <div class="row flex-column flex-sm-row justify-content-between">
+          <div class="col">
+            <p class="text-dark fw-bold ">Premium <span id="span" class="px-1">ULTRA <span>HD</span></span></p>
+          </div>
+          <div class="col d-flex flex-column align-items-end  ">
+            <a href="#" class="text-decoration-none"><p>Change plan</p></a>
+          </div>
+        </div> 
+      </div>     
+    </div>
+    <div class="row flex-column flex-md-row border-bottom border-dark-subtle border-1 mt-3">
+      <div class="col col-10 col-md-4 ps-md-4" style="padding-left: 0 !important;">
+        <h5>SETTINGS</h5>
+      </div> 
+      <div class="col d-flex flex-column align-items-start">
+        <a href="#" class="text-decoration-none"><p>Parental controls</p></a>
+        <a href="#" class="text-decoration-none"><p>Test partecipation</p></a>
+        <a href="#" class="text-decoration-none"><p>Manage download devices</p></a>
+        <a href="#" class="text-decoration-none"><p>Activate a device</p></a>
+        <a href="#" class="text-decoration-none"><p>recent device straming activity</p></a>
+        <a href="#" class="text-decoration-none"><p>sign out of all devices</p></a>
+      </div>     
+    </div>
+    <div class="row flex-column flex-md-row mt-3 mb-5">
+      <div class="col ps-md-4" style="padding-left: 0 !important;">
+        <div class="row flex-column flex-md-row ">
+          <div class="col col-10 col-md-4">
+            <h5>MY PROFILE</h5> 
+          </div>
+          <div class="col col-10 col-md-8">
+            <div class="row">
+              <div class="col">
+                <p class="text-dark fw-bold "><img src="./assets/avatar.png" width="30px" height="20px"> Strive Student</p>
+              </div>
+              <div class="col d-flex flex-column align-items-end">
+                <a href="#" class="text-decoration-none"><p class="mb-0">Menage profiles</p></a>
+                <a href="#" class="text-decoration-none"><p>Add profile email</p></a> 
+            </div>
+          </div>
+        </div>
+        <div class="row flex-column flex-md-row mt-3">
+          <div class="col col-10 col-md-4 ps-md-4" style="padding-left: 0 !important;">
+          </div> 
+          <div class="col col-10 col-md-8">
+            <div class="row justify-content-between">
+              <div class="col">
+                <a href="#" class="text-decoration-none"><p>Language</p></a>
+                <a href="#" class="text-decoration-none"><p>Playback settings</p></a>
+                <a href="#" class="text-decoration-none"><p>Subtitle appearance</p></a>
+              </div>
+              <div class="col d-flex flex-column align-items-end align-items-md-start">
+                <a href="#" class="text-decoration-none"><p>Viewing activity</p></a>
+                <a href="#" class="text-decoration-none"><p>Rating</p></a>
+              </div>
+            </div>
+      </div> 
+    </div>
+  </div>
+ </main>
+  <script src="./assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

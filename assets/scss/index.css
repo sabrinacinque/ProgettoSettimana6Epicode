@@ -1,0 +1,98 @@
+/****************PER LA PAGINA INDEX*******************/
+.bodyBg {
+  background-color: #141414;
+}
+
+#logoNetflix {
+  width: 100px;
+}
+@media screen and (min-width: 768px) {
+  #logoNetflix {
+    width: 70px;
+  }
+}
+@media screen and (min-width: 850px) {
+  #logoNetflix {
+    width: 100px;
+  }
+}
+
+.little {
+  font-size: 0.8em;
+}
+
+.hoverImg:hover {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+a span {
+  z-index: 100;
+}
+
+/****************PER LA PAGINA EDIT PROFILE*******************/
+#profile {
+  font-size: 5em;
+}
+
+#name::-moz-placeholder {
+  color: white;
+}
+
+#name::placeholder {
+  color: white;
+}
+
+.form-check-input {
+  width: 5em;
+  height: 5em;
+}
+
+input[type=checkbox] {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgb(247, 241, 241);
+  background-color: transparent;
+}
+input[type=checkbox]:checked {
+  background-color: transparent;
+  box-shadow: none;
+  border: 1px solid rgb(247, 241, 241);
+}
+input[type=checkbox]:focus {
+  background-color: transparent;
+  border-color: none;
+  box-shadow: none;
+  border: 1px solid rgb(247, 241, 241);
+  outline: none;
+}
+
+#avatar {
+  width: 8em;
+}
+@media screen and (min-width: 1200px) {
+  #avatar {
+    width: 10em;
+  }
+}
+@media screen and (min-width: 1400px) {
+  #avatar {
+    width: 13em;
+  }
+}
+
+/****************PER LA PAGINA SETTINGS*******************/
+#span {
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+  border-style: solid;
+  border-color: rgb(88, 84, 84);
+  font-family: Helvetica, sans-serif;
+  font-weight: 100;
+  border-radius: 3px;
+}
+#span span {
+  font-weight: bold;
+}/*# sourceMappingURL=index.css.map */
